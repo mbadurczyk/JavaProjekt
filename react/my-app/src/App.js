@@ -8,7 +8,6 @@ import CreateTeacherComponent from './components/CreateTeacherComponent';
 import CreateStudentComponent from './components/CreateStudentComponent';
 import ListStudentComponent from './components/ListStudentComponent';
 import HomePage from './components/HomePage';
-import FooterComponent from './components/FooterComponent';
 
 function App() {
   return (
@@ -22,13 +21,8 @@ function App() {
                       <Route path = "/add-teacher/:id" component = {CreateTeacherComponent}></Route>
                       <Route path = "/students/" exact component = {ListStudentComponent}></Route>
                       <Route path = "/add-student/:id" component = {CreateStudentComponent}></Route>
-                    
-                      {/* <Route path = "/employees" component = {ListEmployeeComponent}></Route>
-                      <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route>
-                      <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
                 </Switch>
             </div>
-            <FooterComponent />
     </Router>
 
 </div>
