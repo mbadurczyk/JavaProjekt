@@ -8,11 +8,11 @@ class CreateTeacherComponent extends Component {
         this.state = {
             // step 2
             id: this.props.match.params.id,
-            firstName: '',
+            name: '',
             lastName: '',
-            emailId: ''
+            subject: ''
         }
-        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
+        this.changeNameHandler = this.changeNameHandler.bind(this);
         this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
         this.saveOrUpdateTeacher = this.saveOrUpdateTeacher.bind(this);
     }
@@ -26,16 +26,17 @@ class CreateTeacherComponent extends Component {
         }else{
             TeacherService.getTeacherById(this.state.id).then( (res) =>{
                 let teacher = res.data;
-                this.setState({firstName: teacher.firstName,
+                this.setState({name: teacher.name,
                     lastName: teacher.lastName,
-                    emailId : teacher.emailId
+                    subject : teacher.subject
                 });
             });
         }        
     }
+
     saveOrUpdateTeacher = (e) => {
         e.preventDefault();
-        let teacher = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
+        let teacher = {name: this.state.name, lastName: this.state.lastName, subject: this.state.subject};
         console.log('teacher => ' + JSON.stringify(teacher));
 
         // step 5
@@ -44,22 +45,23 @@ class CreateTeacherComponent extends Component {
                 this.props.history.push('/teachers');
             });
         }else{
-            TeacherService.updateTeacher(teacher, this.state.id).then( res => {
+            teacher.id = this.state.id;
+            TeacherService.updateTeacher(teacher).then( res => {
                 this.props.history.push('/teachers');
             });
         }
     }
     
-    changeFirstNameHandler= (event) => {
-        this.setState({firstName: event.target.value});
+    changeNameHandler= (event) => {
+        this.setState({name: event.target.value});
     }
 
     changeLastNameHandler= (event) => {
         this.setState({lastName: event.target.value});
     }
 
-    changeEmailHandler= (event) => {
-        this.setState({emailId: event.target.value});
+    changeSubjectHandler= (event) => {
+        this.setState({subject: event.target.value});
     }
 
     cancel(){
@@ -87,8 +89,8 @@ class CreateTeacherComponent extends Component {
                                     <form>
                                         <div className = "form-group">
                                             <label> First Name: </label>
-                                            <input placeholder="First Name" name="firstName" className="form-control" 
-                                                value={this.state.firstName} onChange={this.changeFirstNameHandler}/>
+                                            <input placeholder="First Name" name="name" className="form-control" 
+                                                value={this.state.name} onChange={this.changeNameHandler}/>
                                         </div>
                                         <div className = "form-group">
                                             <label> Last Name: </label>
@@ -96,9 +98,9 @@ class CreateTeacherComponent extends Component {
                                                 value={this.state.lastName} onChange={this.changeLastNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label> Email Id: </label>
-                                            <input placeholder="Email Address" name="emailId" className="form-control" 
-                                                value={this.state.emailId} onChange={this.changeEmailHandler}/>
+                                            <label> Subject Id: </label>
+                                            <input placeholder="Subject Address" name="subject" className="form-control" 
+                                                value={this.state.subject} onChange={this.changeSubjectHandler}/>
                                         </div>
 
                                         <button className="btn btn-success" onClick={this.saveOrUpdateTeacher}>Save</button>

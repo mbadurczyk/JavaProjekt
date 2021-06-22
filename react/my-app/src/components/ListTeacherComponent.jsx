@@ -13,6 +13,11 @@ class ListTeacherComponent extends Component {
         this.deleteTeacher = this.deleteTeacher.bind(this);
     }
 
+    
+    addTeacher(){
+        this.props.history.push('/add-teacher/_add');
+    }
+
     deleteTeacher(id){
         TeacherService.deleteTeacher(id).then( res => {
             this.setState({teachers: this.state.teachers.filter(teacher => teacher.id !== id)});
@@ -29,10 +34,6 @@ class ListTeacherComponent extends Component {
         TeacherService.getTeachers().then((res) => {
             this.setState({ teachers: res.data});
         });
-    }
-
-    addTeacher(){
-        this.props.history.push('/add-teacher/_add');
     }
 
     render() {

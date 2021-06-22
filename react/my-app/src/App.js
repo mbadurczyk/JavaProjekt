@@ -15,6 +15,7 @@ function App() {
             <div className="container">
                 <Switch> 
                       <Route path = "/" exact component = {ListTeacherComponent}></Route>
+                      <Route path = "/teachers/" exact component = {ListTeacherComponent}></Route>
                       <Route path = "/add-teacher/:id" component = {CreateTeacherComponent}></Route>
                       {/* <Route path = "/employees" component = {ListEmployeeComponent}></Route>
                       <Route path = "/view-employee/:id" component = {ViewEmployeeComponent}></Route>
