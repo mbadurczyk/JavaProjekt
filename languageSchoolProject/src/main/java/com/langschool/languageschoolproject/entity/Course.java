@@ -1,2 +1,4 @@
-package com.langschool.languageschoolproject.entity;public class Course {
+package com.langschool.languageschoolproject.entity;
+
+public class Course {
 }

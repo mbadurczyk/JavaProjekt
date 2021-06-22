@@ -11,9 +11,14 @@ class ListTeacherComponent extends Component {
         this.addTeacher = this.addTeacher.bind(this);
         this.editTeacher = this.editTeacher.bind(this);
         this.deleteTeacher = this.deleteTeacher.bind(this);
+        this.home = this.home.bind(this);
     }
 
-    
+    home(){
+        this.props.history.push('/');
+    }
+
+
     addTeacher(){
         this.props.history.push('/add-teacher/_add');
     }
@@ -23,9 +28,7 @@ class ListTeacherComponent extends Component {
             this.setState({teachers: this.state.teachers.filter(teacher => teacher.id !== id)});
         });
     }
-    viewTeacher(id){
-        this.props.history.push(`/view-teacher/${id}`);
-    }
+
     editTeacher(id){
         this.props.history.push(`/add-teacher/${id}`);
     }
@@ -66,7 +69,6 @@ class ListTeacherComponent extends Component {
                                              <td>
                                                  <button onClick={ () => this.editTeacher(teacher.id)} className="btn btn-info">Update </button>
                                                  <button style={{marginLeft: "10px"}} onClick={ () => this.deleteTeacher(teacher.id)} className="btn btn-danger">Delete </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewTeacher(teacher.id)} className="btn btn-info">View </button>
                                              </td>
                                         </tr>
                                     )
@@ -75,7 +77,6 @@ class ListTeacherComponent extends Component {
                         </table>
 
                  </div>
-
             </div>
         )
     }

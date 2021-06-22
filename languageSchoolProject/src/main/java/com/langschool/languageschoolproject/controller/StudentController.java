@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/api/")
 public class StudentController {
     @Autowired
     private StudentService service;
@@ -42,13 +44,13 @@ public class StudentController {
         return service.getStudentBySchoolIndex(idx);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateStudent")
     public Student updateStudent(@RequestBody Student student)
     {
         return service.updateStudent(student);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteStudent/{id}")
     public String deleteStudent(@PathVariable int id)
     {
         return service.deleteStudent(id);

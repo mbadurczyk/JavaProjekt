@@ -6,7 +6,6 @@ class CreateTeacherComponent extends Component {
         super(props)
 
         this.state = {
-            // step 2
             id: this.props.match.params.id,
             name: '',
             lastName: '',
@@ -17,10 +16,8 @@ class CreateTeacherComponent extends Component {
         this.saveOrUpdateTeacher = this.saveOrUpdateTeacher.bind(this);
     }
 
-    // step 3
     componentDidMount(){
 
-        // step 4
         if(this.state.id === '_add'){
             return
         }else{
@@ -39,7 +36,6 @@ class CreateTeacherComponent extends Component {
         let teacher = {name: this.state.name, lastName: this.state.lastName, subject: this.state.subject};
         console.log('teacher => ' + JSON.stringify(teacher));
 
-        // step 5
         if(this.state.id === '_add'){
             TeacherService.createTeacher(teacher).then(res =>{
                 this.props.history.push('/teachers');
@@ -98,8 +94,8 @@ class CreateTeacherComponent extends Component {
                                                 value={this.state.lastName} onChange={this.changeLastNameHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label> Subject Id: </label>
-                                            <input placeholder="Subject Address" name="subject" className="form-control" 
+                                            <label> Subject: </label>
+                                            <input placeholder="Subject" name="subject" className="form-control" 
                                                 value={this.state.subject} onChange={this.changeSubjectHandler}/>
                                         </div>
 
