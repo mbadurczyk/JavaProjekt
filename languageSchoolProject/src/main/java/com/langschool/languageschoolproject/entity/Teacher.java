@@ -20,4 +20,6 @@ public class Teacher {
     private String name;
     private String lastName;
     private String subject;
+    private String login;
+    private String password;
 }

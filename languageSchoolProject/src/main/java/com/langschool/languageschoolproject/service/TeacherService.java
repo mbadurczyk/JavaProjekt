@@ -49,6 +49,9 @@ public class TeacherService {
         existingTeacher.setName(teacher.getName());
         existingTeacher.setLastName(teacher.getLastName());
         existingTeacher.setSubject(teacher.getSubject());
+        existingTeacher.setLogin(teacher.getLogin());
+        existingTeacher.setPassword(teacher.getPassword());
         return repository.save(existingTeacher);
     }
+
 }
