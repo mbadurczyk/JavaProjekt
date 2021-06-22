@@ -50,7 +50,7 @@ class ListTeacherComponent extends Component {
                                 <tr>
                                     <th> Teacher First Name</th>
                                     <th> Teacher Last Name</th>
-                                    <th> Teacher Subject</th>
+                                    <th> Subject</th>
                                     <th> Actions</th>
                                 </tr>
                             </thead>
@@ -59,7 +59,7 @@ class ListTeacherComponent extends Component {
                                     this.state.teachers.map(
                                         teacher => 
                                         <tr key = {teacher.id}>
-                                             <td> { teacher.firstName} </td>   
+                                             <td> { teacher.name} </td>   
                                              <td> {teacher.lastName}</td>
                                              <td> {teacher.subject}</td>
                                              <td>
