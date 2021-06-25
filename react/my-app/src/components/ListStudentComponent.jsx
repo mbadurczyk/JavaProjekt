@@ -10,6 +10,7 @@ class ListStudentComponent extends Component {
         }
         this.addStudent = this.addStudent.bind(this);
         this.editStudent = this.editStudent.bind(this);
+        this.viewStudent = this.viewStudent.bind(this);
         this.deleteStudent = this.deleteStudent.bind(this);
     }
 
@@ -26,6 +27,10 @@ class ListStudentComponent extends Component {
 
     editStudent(id){
         this.props.history.push(`/add-student/${id}`);
+    } 
+    
+    viewStudent(id){
+        this.props.history.push(`/view-student/${id}`);
     }
 
     componentDidMount(){
@@ -63,6 +68,7 @@ class ListStudentComponent extends Component {
                                              <td> {student.schoolIndex}</td>
                                              <td>
                                                  <button onClick={ () => this.editStudent(student.id)} className="btn btn-info">Update </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewStudent(student.id)} className="btn btn-info">View </button>
                                                  <button style={{marginLeft: "10px"}} onClick={ () => this.deleteStudent(student.id)} className="btn btn-danger">Delete </button>
                                              </td>
                                         </tr>

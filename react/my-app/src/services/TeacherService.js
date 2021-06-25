@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const TEACHER_API_BASE_URL = "http://localhost:9191/api";
+const TEACHER_API_BASE_URL = "http://localhost:9192/api";
 
 class TeacherService {
 
